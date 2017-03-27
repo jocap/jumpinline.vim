@@ -73,7 +73,7 @@ endfunction " }}}
 
 
 " Create submode {{{
-if exists('g:submode_keep_leaving_key') && g:jumpinline_use_submode == 1
+if g:jumpinline_use_submode == 1
 " Only create submode if submode plugin is installed and
 " g:jumpinline_use_submode = 1 (default)
 " (submode is optional, but highly useful)
