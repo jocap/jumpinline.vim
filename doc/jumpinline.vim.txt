@@ -1,0 +1,149 @@
+jumpinline.vim      For Vim version 8.0     Last change: 2017 March 27
+
+                                  _____   _____   _____
+                                 /    /  /    /  /    /
+                                /    /  /    /  /    /
+                      _____    /    /  /    /  /    /   ___
+                      \    \__/    /  /    /  /    /____|  \
+                       \          /  /    /  /              \
+                        \________/  /____/  /____________   /
+                                                        |__/
+                                 *jumpinline.vim*
+                                      v0.1
+
+===============================================================================
+CONTENTS                                                     *jumpinlineContents*
+
+    1. Usage ................ |jumpinlineUsage|
+    2. Default mappings ..... |jumpinlineDefaultMappings|
+    3. Configuration ........ |jumpinlineConfiguration|
+    4. License .............. |jumpinlineLicense|
+    5. Credits .............. |jumpinlineCredits|
+
+===============================================================================
+Section 1: Usage                                                *jumpinlineUsage*
+
+`jumpinline.vim` is a plugin that allows the user to quickly find the right
+place in a line, by simply using the number keys on the keyboard.
+
+To jump to 10% of the current line, press <space>1. For 50%, press <space>5.
+If you jump a little bit too far, you can adjust by pressing any other number,
+as many times as you like, without having to press space again.
+
+This works because `jumpinline.vim` runs as its own submode (provided by
+`vim-submode` - see |jumpinlineCredits|), which exits back to normal/visual mode
+after a short timeout - or automatically, if you press any other letter that
+isn't used by `jumpinline.vim`.
+
+This means that it is very easy to jump quickly to any position in the current
+line, without having to think about what character to jump to using t/f, or
+having to press w a bunch of times until you find your place.
+
+`jumpinline.vim` is especially useful when working with lines containing a lot
+of repetition, making t, f and even / a pain to use. Instead, just estimate
+how far you need to go into the line and press the corresponding number. Need
+to go the middle of the file, approximately? Just press <space>5 and adjust
+using hjkl or another number.
+
+===============================================================================
+Section 2: Default mappings                           *jumpinlineDefaultMappings*
+
+All the following mappings can be changed (see |jumpinlineConfiguration|).
+
+From outside `jumpinline` submode:
+
+              |  if `vim-submode` is loaded:  |   otherwise:
+-------------------------------------------------------------------------------
+    <space>`  |  starts `jumpinline` submode  |  goes to   0% of the line
+    <space>1  |  ----------- : -----------  |  -- : --  10% ---- : ----
+    <space>2  |  ----------- : -----------  |  -- : --  20% ---- : ----
+    <space>3  |  ----------- : -----------  |  -- : --  30% ---- : ----
+    <space>4  |  ----------- : -----------  |  -- : --  40% ---- : ----
+    <space>5  |  ----------- : -----------  |  -- : --  50% ---- : ----
+    <space>6  |  ----------- : -----------  |  -- : --  60% ---- : ----
+    <space>7  |  ----------- : -----------  |  -- : --  70% ---- : ----
+    <space>8  |  ----------- : -----------  |  -- : --  80% ---- : ----
+    <space>9  |  ----------- : -----------  |  -- : --  90% ---- : ----
+    <space>0  |  ----------- : -----------  |  -- : -- 100% ---- : ----
+-------------------------------------------------------------------------------
+
+From inside the `jumpinline` submode (if `vim-submode` is loaded):
+
+-------------------------------------------------------------------------------
+    `  |   goes to   0% of the line
+    1  |   -- : --  10% ---- : ----
+    2  |   -- : --  20% ---- : ----
+    3  |   -- : --  30% ---- : ----
+    4  |   -- : --  40% ---- : ----
+    5  |   -- : --  50% ---- : ----
+    6  |   -- : --  60% ---- : ----
+    7  |   -- : --  70% ---- : ----
+    8  |   -- : --  80% ---- : ----
+    9  |   -- : --  90% ---- : ----
+    0  |   -- : -- 100% ---- : ----
+-------------------------------------------------------------------------------
+
+===============================================================================
+Section 3: Configuration                                *jumpinlineConfiguration*
+
+To configure `jumpinline.vim`, the following variables can be set:
+
+*g:jumpinline_prefix*
+    (default: '<space>')
+    Key used in combination with g:jumpinline_mappings to trigger the
+    jumpinline submode.
+
+*g:jumpinline_bindings*
+    (default: ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'])
+    Keys used after g:jumpinline_prefix to jump to 0%, 10%, 20%, 30%, 40%,
+    50%, 60%, 70%, 80%, 90% and 100% of the line, respectively.
+
+*g:jumpinline_use_submode*
+    (default: 1)
+    Whether or not to use vim-submode. Note: it is highly recommended not to
+    change this.
+
+*g:jumpinline_leave_on_any_key*
+    (default: 1)
+    Alias for g:submode_keep_leaving_key, a Vim-submode option. Lets the user
+    exit the submode by pressing any key that isn't mapped to the submode.
+    Note: it is recommended not to change this.
+
+===============================================================================
+Section 4: License                                            *jumpinlineLicense*
+
+MIT License {{{
+
+  Copyright (c) 2017 John Ankarström
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+
+}}}
+
+===============================================================================
+Section 5: Credits                                            *jumpinlineCredits*
+
+Author: John Ankarström <john.ankarstrom@gmail.com>
+
+I'd also like to thank Bram Moolenaar, the author of *help-writing* - you have
+been a great help in documenting my plugin.
+
+-------------------------------------------------------------------------------
+
+ vim:tw=79:ts=4:ft=help:norl:

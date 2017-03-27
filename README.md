@@ -94,12 +94,12 @@ submode.
 Keys used after *g:jumpinline_prefix* to jump to 0%, 10%, 20%, 30%, 40%, 50%,
 60%, 70%, 80%, 90% and 100% of the line, respectively.
 
-**g:jumpinline_use_submode** (default: 1)
+**g:jumpinline_use_submode** (default: 1):
 
 Whether or not to use [vim-submode](https://github.com/kana/vim-submode).
 *Note:* it is highly recommended not to change this.
 
-**g:jumpinline_leave_on_any_key** (default: 1)
+**g:jumpinline_leave_on_any_key** (default: 1):
 
 Alias for *g:submode_keep_leaving_key*, a [vim-submode](https://github.com/kana/vim-submode) option.  Lets the user exit the submode by pressing any key that isn't mapped to the submode. *Note*: it is recommended not to change this.
 
