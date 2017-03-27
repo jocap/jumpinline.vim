@@ -1,5 +1,11 @@
 # jumpinline.vim
 
+*   [Description](#description)
+    * [Examples](#examples) (gifs)
+*   [Installation](#installation)
+*   [Configuration](#configuration)
+*   [Documentation](#documentation)
+
 ## Description
 
 *jumpinline.vim* is a plugin that allows the user to quickly find
