@@ -73,7 +73,7 @@ endfunction " }}}
 
 
 " Create submode {{{
-if g:jumpinline_use_submode == 1
+if exists('g:submode_keep_leaving_key') && g:jumpinline_use_submode == 1
 " Only create submode if submode plugin is installed and
 " g:jumpinline_use_submode = 1 (default)
 " (submode is optional, but highly useful)
@@ -108,29 +108,29 @@ if g:jumpinline_use_submode == 1
     call submode#enter_with('jumpinline', 'v', '', g:jumpinline_prefix . g:jumpinline_bindings[9], ':call jumpinline#GoPartLine(0.9, "v")<CR>')
     call submode#enter_with('jumpinline', 'v', '', g:jumpinline_prefix . g:jumpinline_bindings[10], ':call jumpinline#GoPartLine(1, "v")<CR>')
 
-    call submode#map('jumpinline', 'n', '', g:jumpinline_prefix . g:jumpinline_bindings[0], ':call jumpinline#GoPartLine(0, "n")<CR>')
-    call submode#map('jumpinline', 'n', '', g:jumpinline_prefix . g:jumpinline_bindings[1], ':call jumpinline#GoPartLine(0.1, "n")<CR>')
-    call submode#map('jumpinline', 'n', '', g:jumpinline_prefix . g:jumpinline_bindings[2], ':call jumpinline#GoPartLine(0.2, "n")<CR>')
-    call submode#map('jumpinline', 'n', '', g:jumpinline_prefix . g:jumpinline_bindings[3], ':call jumpinline#GoPartLine(0.3, "n")<CR>')
-    call submode#map('jumpinline', 'n', '', g:jumpinline_prefix . g:jumpinline_bindings[4], ':call jumpinline#GoPartLine(0.4, "n")<CR>')
-    call submode#map('jumpinline', 'n', '', g:jumpinline_prefix . g:jumpinline_bindings[5], ':call jumpinline#GoPartLine(0.5, "n")<CR>')
-    call submode#map('jumpinline', 'n', '', g:jumpinline_prefix . g:jumpinline_bindings[6], ':call jumpinline#GoPartLine(0.6, "n")<CR>')
-    call submode#map('jumpinline', 'n', '', g:jumpinline_prefix . g:jumpinline_bindings[7], ':call jumpinline#GoPartLine(0.7, "n")<CR>')
-    call submode#map('jumpinline', 'n', '', g:jumpinline_prefix . g:jumpinline_bindings[8], ':call jumpinline#GoPartLine(0.8, "n")<CR>')
-    call submode#map('jumpinline', 'n', '', g:jumpinline_prefix . g:jumpinline_bindings[9], ':call jumpinline#GoPartLine(0.9, "n")<CR>')
-    call submode#map('jumpinline', 'n', '', g:jumpinline_prefix . g:jumpinline_bindings[10], ':call jumpinline#GoPartLine(1, "n")<CR>')
-                                                                  
-    call submode#map('jumpinline', 'v', '', g:jumpinline_prefix . g:jumpinline_bindings[0], ':call jumpinline#GoPartLine(0, "v")<CR>')
-    call submode#map('jumpinline', 'v', '', g:jumpinline_prefix . g:jumpinline_bindings[1], ':call jumpinline#GoPartLine(0.1, "v")<CR>')
-    call submode#map('jumpinline', 'v', '', g:jumpinline_prefix . g:jumpinline_bindings[2], ':call jumpinline#GoPartLine(0.2, "v")<CR>')
-    call submode#map('jumpinline', 'v', '', g:jumpinline_prefix . g:jumpinline_bindings[3], ':call jumpinline#GoPartLine(0.3, "v")<CR>')
-    call submode#map('jumpinline', 'v', '', g:jumpinline_prefix . g:jumpinline_bindings[4], ':call jumpinline#GoPartLine(0.4, "v")<CR>')
-    call submode#map('jumpinline', 'v', '', g:jumpinline_prefix . g:jumpinline_bindings[5], ':call jumpinline#GoPartLine(0.5, "v")<CR>')
-    call submode#map('jumpinline', 'v', '', g:jumpinline_prefix . g:jumpinline_bindings[6], ':call jumpinline#GoPartLine(0.6, "v")<CR>')
-    call submode#map('jumpinline', 'v', '', g:jumpinline_prefix . g:jumpinline_bindings[7], ':call jumpinline#GoPartLine(0.7, "v")<CR>')
-    call submode#map('jumpinline', 'v', '', g:jumpinline_prefix . g:jumpinline_bindings[8], ':call jumpinline#GoPartLine(0.8, "v")<CR>')
-    call submode#map('jumpinline', 'v', '', g:jumpinline_prefix . g:jumpinline_bindings[9], ':call jumpinline#GoPartLine(0.9, "v")<CR>')
-    call submode#map('jumpinline', 'v', '', g:jumpinline_prefix . g:jumpinline_bindings[10], ':call jumpinline#GoPartLine(1, "v")<CR>')
+    call submode#map('jumpinline', 'n', '', g:jumpinline_bindings[0], ':call jumpinline#GoPartLine(0, "n")<CR>')
+    call submode#map('jumpinline', 'n', '', g:jumpinline_bindings[1], ':call jumpinline#GoPartLine(0.1, "n")<CR>')
+    call submode#map('jumpinline', 'n', '', g:jumpinline_bindings[2], ':call jumpinline#GoPartLine(0.2, "n")<CR>')
+    call submode#map('jumpinline', 'n', '', g:jumpinline_bindings[3], ':call jumpinline#GoPartLine(0.3, "n")<CR>')
+    call submode#map('jumpinline', 'n', '', g:jumpinline_bindings[4], ':call jumpinline#GoPartLine(0.4, "n")<CR>')
+    call submode#map('jumpinline', 'n', '', g:jumpinline_bindings[5], ':call jumpinline#GoPartLine(0.5, "n")<CR>')
+    call submode#map('jumpinline', 'n', '', g:jumpinline_bindings[6], ':call jumpinline#GoPartLine(0.6, "n")<CR>')
+    call submode#map('jumpinline', 'n', '', g:jumpinline_bindings[7], ':call jumpinline#GoPartLine(0.7, "n")<CR>')
+    call submode#map('jumpinline', 'n', '', g:jumpinline_bindings[8], ':call jumpinline#GoPartLine(0.8, "n")<CR>')
+    call submode#map('jumpinline', 'n', '', g:jumpinline_bindings[9], ':call jumpinline#GoPartLine(0.9, "n")<CR>')
+    call submode#map('jumpinline', 'n', '', g:jumpinline_bindings[10], ':call jumpinline#GoPartLine(1, "n")<CR>')
+                                            
+    call submode#map('jumpinline', 'v', '', g:jumpinline_bindings[0], ':call jumpinline#GoPartLine(0, "v")<CR>')
+    call submode#map('jumpinline', 'v', '', g:jumpinline_bindings[1], ':call jumpinline#GoPartLine(0.1, "v")<CR>')
+    call submode#map('jumpinline', 'v', '', g:jumpinline_bindings[2], ':call jumpinline#GoPartLine(0.2, "v")<CR>')
+    call submode#map('jumpinline', 'v', '', g:jumpinline_bindings[3], ':call jumpinline#GoPartLine(0.3, "v")<CR>')
+    call submode#map('jumpinline', 'v', '', g:jumpinline_bindings[4], ':call jumpinline#GoPartLine(0.4, "v")<CR>')
+    call submode#map('jumpinline', 'v', '', g:jumpinline_bindings[5], ':call jumpinline#GoPartLine(0.5, "v")<CR>')
+    call submode#map('jumpinline', 'v', '', g:jumpinline_bindings[6], ':call jumpinline#GoPartLine(0.6, "v")<CR>')
+    call submode#map('jumpinline', 'v', '', g:jumpinline_bindings[7], ':call jumpinline#GoPartLine(0.7, "v")<CR>')
+    call submode#map('jumpinline', 'v', '', g:jumpinline_bindings[8], ':call jumpinline#GoPartLine(0.8, "v")<CR>')
+    call submode#map('jumpinline', 'v', '', g:jumpinline_bindings[9], ':call jumpinline#GoPartLine(0.9, "v")<CR>')
+    call submode#map('jumpinline', 'v', '', g:jumpinline_bindings[10], ':call jumpinline#GoPartLine(1, "v")<CR>')
 
 " }}}
 else " => non-submode mappings (not really too useful) {{{
