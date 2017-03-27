@@ -1,4 +1,4 @@
-# jumpinline.vim (v0.1)
+# jumpinline.vim (v0.2)
 
 *   [Description](#description)
     * [Examples](#examples) (gifs)
@@ -99,6 +99,13 @@ submode.
 
 Keys used after *g:jumpinline_prefix* to jump to 0%, 10%, 20%, 30%, 40%, 50%,
 60%, 70%, 80%, 90% and 100% of the line, respectively.
+
+**g:jumpinline_graphical_line** (default: 0):
+
+Whether or not to traverse the graphical line or the "real" line (which may
+contain wraps).  If set to 1, *jumpinline.vim* will treat wraps as normal
+line breaks. Very useful if you're working with text files without manual
+wrapping.
 
 **g:jumpinline_use_submode** (default: 1):
 

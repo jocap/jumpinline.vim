@@ -1,4 +1,4 @@
-jumpinline.vim      For Vim version 8.0     Last change: 2017 March 27
+*jumpinline.vim*          For Vim version 8.0         Last change: 2017 March 28
 
                                   _____   _____   _____
                                  /    /  /    /  /    /
@@ -9,7 +9,7 @@ jumpinline.vim      For Vim version 8.0     Last change: 2017 March 27
                         \________/  /____/  /____________   /
                                                         |__/
                                  *jumpinline.vim*
-                                      v0.1
+                                      v0.2
 
 ===============================================================================
 CONTENTS                                                     *jumpinlineContents*
@@ -17,8 +17,9 @@ CONTENTS                                                     *jumpinlineContents
     1. Usage ................ |jumpinlineUsage|
     2. Default mappings ..... |jumpinlineDefaultMappings|
     3. Configuration ........ |jumpinlineConfiguration|
-    4. License .............. |jumpinlineLicense|
-    5. Credits .............. |jumpinlineCredits|
+    4. Changelog ............ |jumpinlineChangelog|
+    5. License .............. |jumpinlineLicense|
+    6. Credits .............. |jumpinlineCredits|
 
 ===============================================================================
 Section 1: Usage                                                *jumpinlineUsage*
@@ -98,6 +99,12 @@ To configure `jumpinline.vim`, the following variables can be set:
     Keys used after g:jumpinline_prefix to jump to 0%, 10%, 20%, 30%, 40%,
     50%, 60%, 70%, 80%, 90% and 100% of the line, respectively.
 
+*g:jumpinline_graphical_line*
+    (default: 0)
+    Whether or not to traverse the graphical line or the "real" line (which may
+    contain wraps).  If set to 1, `jumpinline.vim` will treat wraps as normal
+    line breaks.
+
 *g:jumpinline_use_submode*
     (default: 1)
     Whether or not to use vim-submode. Note: it is highly recommended not to
@@ -110,7 +117,19 @@ To configure `jumpinline.vim`, the following variables can be set:
     Note: it is recommended not to change this.
 
 ===============================================================================
-Section 4: License                                            *jumpinlineLicense*
+Section 4: Changelog                                        *jumpinlineChangelog*
+
+v0.1 ------------------------------------------------------------ 2017 March 27
+
+- Beta release, but in somewhat working condition.
+
+v0.2 ------------------------------------------------------------ 2017 March 28
+
+- Added *g:jumpinline_graphical_line* option.
+- Various bugfixes, in working condition.
+
+===============================================================================
+Section 5: License                                            *jumpinlineLicense*
 
 MIT License {{{
 
@@ -137,7 +156,7 @@ MIT License {{{
 }}}
 
 ===============================================================================
-Section 5: Credits                                            *jumpinlineCredits*
+Section 6: Credits                                            *jumpinlineCredits*
 
 Author: John Ankarström <john.ankarstrom@gmail.com>
 
