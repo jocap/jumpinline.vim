@@ -37,9 +37,9 @@ Below are embedded three gifs of *jumpinline.vim* in action, showing a version
 of the plugin with debugging tools enabled to display what command is being
 executed.  In your version, this won't be visible.
 
-![Example: LaTeX code editing](http://i.imgur.com/p1gP7ee.gif)
-![Example: VimL editing](http://i.imgur.com/JqqHzxM.gif)
-![Example: LaTeX text editing](http://i.imgur.com/4BSWUPW.gif)
+![Example: LaTeX code editing](https://github.com/jocap/jumpinline.vim/blob/master/img/example-latex-code.gif?raw=true)
+![Example: VimL editing](https://github.com/jocap/jumpinline.vim/blob/master/img/example-viml.gif?raw=true)
+![Example: LaTeX text editing](https://github.com/jocap/jumpinline.vim/blob/master/img/example-latex-text.gif?raw=true)
 
 ## Installation
 
