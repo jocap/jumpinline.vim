@@ -112,3 +112,9 @@ If you want to press `a` + the keys from Q through [ instead of the default `<sp
 
 Of course, this particular setup is not recommended, but serves as a simple
 example.
+
+## Documentation
+
+To view the full documentation, see the help file:
+
+    :help jumpinline.vim
