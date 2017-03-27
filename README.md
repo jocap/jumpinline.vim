@@ -1,4 +1,4 @@
-# jumpinline.vim
+# jumpinline.vim (v0.1)
 
 *   [Description](#description)
     * [Examples](#examples) (gifs)

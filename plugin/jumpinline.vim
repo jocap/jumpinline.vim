@@ -73,7 +73,7 @@ endfunction " }}}
 
 
 " Create submode {{{
-if exists('g:submode_keep_leaving_key') && g:jumpinline_use_submode == 1
+if g:jumpinline_use_submode == 1
 " Only create submode if submode plugin is installed and
 " g:jumpinline_use_submode = 1 (default)
 " (submode is optional, but highly useful)
@@ -144,7 +144,7 @@ else " => non-submode mappings (not really too useful) {{{
     execute "nnoremap " . g:jumpinline_prefix . g:jumpinline_bindings[7] . " :call jumpinline#GoPartLine(0.7, \"n\")<CR>"
     execute "nnoremap " . g:jumpinline_prefix . g:jumpinline_bindings[8] . " :call jumpinline#GoPartLine(0.8, \"n\")<CR>"
     execute "nnoremap " . g:jumpinline_prefix . g:jumpinline_bindings[9] . " :call jumpinline#GoPartLine(0.9, \"n\")<CR>"
-    execute "nnoremap " . g:jumpinline_prefix . g:jumpinline_bindings[10 . " :call jumpinline#GoPartLine(1, \"n\")<CR>"
+    execute "nnoremap " . g:jumpinline_prefix . g:jumpinline_bindings[10] . " :call jumpinline#GoPartLine(1, \"n\")<CR>"
                       " . 
     execute "vnoremap " . g:jumpinline_prefix . g:jumpinline_bindings[0] . " :call jumpinline#GoPartLine(0, \"v\")<CR>"
     execute "vnoremap " . g:jumpinline_prefix . g:jumpinline_bindings[1] . " :call jumpinline#GoPartLine(0.1, \"v\")<CR>"
@@ -156,5 +156,5 @@ else " => non-submode mappings (not really too useful) {{{
     execute "vnoremap " . g:jumpinline_prefix . g:jumpinline_bindings[7] . " :call jumpinline#GoPartLine(0.7, \"v\")<CR>"
     execute "vnoremap " . g:jumpinline_prefix . g:jumpinline_bindings[8] . " :call jumpinline#GoPartLine(0.8, \"v\")<CR>"
     execute "vnoremap " . g:jumpinline_prefix . g:jumpinline_bindings[9] . " :call jumpinline#GoPartLine(0.9, \"v\")<CR>"
-    execute "vnoremap " . g:jumpinline_prefix . g:jumpinline_bindings[10 . " :call jumpinline#GoPartLine(1, \"v\")<CR>"
+    execute "vnoremap " . g:jumpinline_prefix . g:jumpinline_bindings[10] . " :call jumpinline#GoPartLine(1, \"v\")<CR>"
 endif " }}}
