@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:900i');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+@media screen and (max-width: 730px) {
+    header h1 { font-size: 6.5rem !important; }
+}
+@media screen and (max-width: 600px) {
+    header h1 { font-size: 6rem !important; }
+}
+@media screen and (max-width: 500px) {
+    header h1 { font-size: 5.5rem !important; }
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font: 1.8rem/1.5 'Source Sans Pro', 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+    background: black;
+    margin: 0;
+}
+
+#wrapper {
+    max-width: 70rem;
+    min-width: 380px;
+    background: #181818;
+    color: #d8d8d8;
+    margin: 0 auto;
+    padding: 2em 4em 4em;
+    border: solid #444;
+    border-width: 0 1px;
+}
+
+header {
+    text-align: center;
+    padding-bottom: 1em;
+    border-bottom: 1px solid hsl(0, 0%, 24%);
+    margin-bottom: 2em;
+}
+header h1 {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 7rem;
+}
+header h1 a {
+    color: hsl(48, 82%, 50%);
+}
+
+#ascii {
+    width: 380px;
+    margin: 0 auto;
+    color: hsl(41, 100%, 50%);
+    cursor: pointer;
+}
+
+a {
+    color: hsl(30, 100%, 63%);
+    text-decoration: none;
+}
+a:hover {
+    color: hsl(23, 100%, 47%);
+    text-decoration: underline;
+}
+
+img {
+    max-width: 70rem;
+}
+p > img:not(:last-child) {
+    margin-bottom: -7px;
+}
+
+h2 {
+    border-top: 1px solid hsl(0, 0%, 24%);
+    padding-top: 0.67em;
+}
+
+pre:not(#ascii) {
+    font-size: 1.8rem;
+}
+pre:not(#ascii), code {
+    font-family: Inconsolata, monospace;
+    background: hsl(0, 0%, 14%);
+    border: solid #444;
+    border-width: 1px 0;
+}
+pre > code {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    max-width: 70rem;
+    display: block;
+}
+
+main b, main strong {
+    color: hsl(237, 73%, 76%);
+}
