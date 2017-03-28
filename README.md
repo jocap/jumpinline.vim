@@ -92,7 +92,7 @@ configured:
 
 **g:jumpinline_prefix** (default: `'<space>'`):
 
-Key used in combination with *g:jumpinline_mappings* to trigger the *jumpinline*
+Key used in combination with *g:jumpinline_bindings* to trigger the *jumpinline*
 submode.
 
 **g:jumpinline_bindings** (default: ``['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0']``):
