@@ -1,8 +1,18 @@
 " jumpinline.vim
 " --------------
 
+" Don't waste time reload the plugin if it already is loaded:
+if exists('g:jumpinline_already_loaded')
+    if exists('g:jumpinline_dev_reload')
+        if g:jumpinline_dev_reload != 1
+            finish
+        endif
+    else
+        finish
+    endif
+endif
+
 " Options {{{
-" (when editing the plugin, remember that these need to be unset when reloading)
 if !exists('g:jumpinline_prefix')
     let g:jumpinline_prefix = '<space>'
 endif
@@ -18,6 +28,10 @@ if !exists('g:jumpinline_use_submode')
 endif
 if !exists('g:jumpinline_leave_on_any_key')
     let g:jumpinline_leave_on_any_key = 1
+endif
+if !exists('g:jumpinline_dev_reload')
+    " reload even if plugin already is loaded
+    let g:jumpinline_dev_reload = 0
 endif
 " }}}
 
@@ -155,3 +169,5 @@ else " => non-submode mappings (not really too useful) {{{
     execute "vnoremap " . g:jumpinline_prefix . g:jumpinline_bindings[9] . " :call jumpinline#GoPartLine(0.9, \"v\")<CR>"
     execute "vnoremap " . g:jumpinline_prefix . g:jumpinline_bindings[10] . " :call jumpinline#GoPartLine(1, \"v\")<CR>"
 endif " }}}
+
+let g:jumpinline_already_loaded = 1
