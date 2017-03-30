@@ -1,7 +1,7 @@
 " jumpinline.vim
 " --------------
 
-" Don't waste time reload the plugin if it already is loaded:
+" Don't waste time reload the plugin if it already is loaded {{{
 if exists('g:jumpinline_already_loaded')
     if exists('g:jumpinline_dev_reload')
         if g:jumpinline_dev_reload != 1
@@ -10,7 +10,7 @@ if exists('g:jumpinline_already_loaded')
     else
         finish
     endif
-endif
+endif " }}}
 
 " Options {{{
 if !exists('g:jumpinline_prefix')
@@ -35,17 +35,20 @@ if !exists('g:jumpinline_dev_reload')
 endif
 " }}}
 
-function! jumpinline#GoPartLine(n, mode) " {{{
+function! jumpinline#GoPartLine(...) " {{{
 " = Function that jumps to n% of the current line
-    " - Decide how to execute the movement (normal/visual)
-    let l:prefix = 'normal! ' " default
-    if a:mode == 'n'
-        if g:jumpinline_graphical_line == 1
-            let l:prefix = 'normal! g'
-        else
-            let l:prefix = 'normal! '
-        endif
-    elseif a:mode == 'v'
+    " Arguments: (optional)
+    let l:n =  a:0 >= 1 ? a:1 : 0 " a:0 = no of arguments, a:1 = 1st argument
+    let l:mode = a:0 >= 2 ? a:2 : 'n'
+    let l:justreturn = a:0 >= 3 ? a:3 : 0 " don't move, but return positions
+
+    " Default: (normal mode)
+    if g:jumpinline_graphical_line == 1
+        let l:prefix = 'normal! g'
+    else
+        let l:prefix = 'normal! '
+    endif
+    if (l:mode == 'v') " visual mode
         if g:jumpinline_graphical_line == 1
             let l:prefix = 'normal! gvg'
         else
@@ -66,24 +69,72 @@ function! jumpinline#GoPartLine(n, mode) " {{{
         let l:lineln = l:lineln + 1 " to account for the later subtraction by 1
     else
         let l:line = getline('.') " get line characters
+        let l:totln = strlen(l:line)
         let l:line = substitute(l:line, '^\s*\(.\{-}\)\s*$', '\1', '') " remove whitespace
         let l:lineln = strlen(l:line) " calculate length of line
+        let l:spaceln = l:totln - l:lineln
     endif
 
-    if a:n == 0
-        execute l:prefix . '^'
-        " ^ go to beginning of line (has to be done manually, as `0l` would
-        "   go one character right of the line's beginning)
-    else
-        let l:product = round(l:lineln * a:n)
-        let l:position = float2nr(l:product) - 1
-        " ^ for example: [line length of 31] * 0.5 = 15.5 -> product
-        "                round product to 16-1 = 15       -> position (to jump to)
+    let l:product = round(l:lineln * l:n)
+    let l:position = float2nr(l:product)
+    " ^ for example: [line length of 31] * 0.5 = 15.5 -> product
+    "                round product to 16              -> position (to jump to)
 
-        execute l:prefix . '^' . l:position . 'l'
-        " ^ in our example: go to beginning of line and move 16 places right
+    if l:justreturn == 1
+        if l:n == 0
+            return l:spaceln + 1
+        else
+            return l:position + l:spaceln
+        endif
+    else
+        if l:n == 0
+            execute l:prefix . '^'
+            " ^ go to beginning of line (has to be done manually, as `0l` would
+            "   go one character right of the line's beginning)
+        else
+            execute l:prefix . '^' . (l:position - 1) . 'l'
+            " ^ in our example: go to beginning of line and move 16 places right
+        endif
     endif
 endfunction " }}}
+
+" TODO: create another branch for working on this
+function! jumpinline#HighlightPositions(...)
+    let l:mode =  a:0 >= 1 ? a:1 : 'n'
+
+    " Save the current line's text and the cursor's position:
+    let l:original_line = getline('.')
+    let l:original_pos = getpos('.')[2]
+
+    " Hide cursor
+    let l:t_ve = &t_ve
+    " let l:guicursor = &guicursor
+    set t_ve=
+    " set guicursor=n:block-NONE
+
+    let l:columns = [0,0,0,0,0,0,0,0,0,0,0]
+    let l:matches = [0,0,0,0,0,0,0,0,0,0,0]
+    let i = 0
+    for l:binding in g:jumpinline_bindings
+        " 1) Retrieve all the positions -> l:columns
+        let j = i * 0.1
+        let l:columns[i] = jumpinline#GoPartLine(j, l:mode, 1)
+
+        " 2) Replace characters on the columns with corresponding number
+        "    and add match for highlighting
+        let l:lineno = getpos('.')[1]
+        call cursor(l:lineno, l:columns[i])
+        execute 'hi jumpinline_' . i . ' ctermfg=195 ctermbg=124'
+        execute 'normal! r' . g:jumpinline_bindings[i]
+        let l:matches[i] = matchadd('jumpinline_' . i, '\%' . l:lineno . 'l\%' . l:columns[i] . 'v' . g:jumpinline_bindings[i])
+        let i += 1
+    endfor
+
+    " Restore cursor
+    "set t_ve=l:t_ve
+    " set guicursor=l:guicursor
+
+endfunction
 
 " Create submode {{{
 if g:jumpinline_use_submode == 1
