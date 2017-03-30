@@ -1,0 +1,42 @@
+*scratch*
+
+printf("highlight %s %s%s=%s", a:group, s:get_term(), a:attr, a:color)
+" s:get_term() -> GUI / cterm
+" a:attr -> 'fg', 'bg', ''
+
+let group = 'jumpinline-1' " ... 1-9 (` and 0 might be redundant, we'll see)
+
+" Keep highlight active as long as submode is active.
+
+" Use matchadd() to define the pattern to be highlighted.
+matchadd('jumpinline-1', 'pattern')
+
+" Use \%23v in regex to match the 23th virtual (?) column.
+" And \%14l to match only the 14th line.
+
+" So, what steps to be performed:
+" 1. Establish the Positions for 10 through 90%
+" 2. Save the text of the current line
+" 3. Replace the characters on the Positions with their corresponding number
+" 4. Use matchadd() to highlight the pattern, using \%l to match only the
+"    current line, and \%v to match only the Position (do for each Position)
+" 5. - User makes a selection -> movement
+"    - User cancels by pressing any other key (<Esc> is suitable) -> continue
+"    - User does nothing -> wait (may need to disable vim-submode's timeout and
+"      program a custom one...
+" 6. Save cursor pos, replace line with saved line and move cursor back
+" 7. Remove matches for group jumpinline_* (see s:unhighlight_line())
+
+" Function from quick-scope:
+function! s:unhighlight_line()
+    for m in filter(getmatches(), printf('v:val.group ==# "%s" || v:val.group ==# "%s"', s:hi_group_primary, s:hi_group_secondary))
+        call matchdelete(m.id)
+    endfor
+endfunction 
+
+" ... although, it seems you could just to this:
+" Example:
+    highlight MyGroup ctermbg=green guibg=green
+    let m = matchadd("MyGroup", "TODO")
+" Deletion:
+    call matchdelete(m)
