@@ -116,6 +116,14 @@ Whether or not to use [vim-submode](https://github.com/kana/vim-submode).
 
 Alias for *g:submode_keep_leaving_key*, a [vim-submode](https://github.com/kana/vim-submode) option.  Lets the user exit the submode by pressing any key that isn't mapped to the submode. *Note*: it is recommended not to change this.
 
+**Important:**
+
+The variables above have to be set *before* the plugin is loaded. If you load
+*jumpinline.vim* before adjusting the configuration, call the following
+function after the variables have been set:
+
+    call jumpinline#Load()
+
 ### Example configuration
 
 If you want to press `a` + the keys from Q through [ instead of the default `<space>` + \`-0, enter this into your vim configuration:

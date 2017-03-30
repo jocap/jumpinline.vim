@@ -1,0 +1,11 @@
+call plug#begin('~/.vim/plugins')
+Plug 'kana/vim-submode' | Plug '/home/john/.vim/dev/plugins/jumpinline.vim'
+Plug 'junegunn/vader.vim'
+call plug#end()
+
+set encoding=utf-8
+set nocompatible
+syntax on
+filetype plugin indent on
+colorscheme jellybeans
+nnoremap ; :

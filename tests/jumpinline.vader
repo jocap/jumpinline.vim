@@ -1,0 +1,23 @@
+# Default configuration:
+
+Execute (test assertion):
+  AssertEqual 1, g:jumpinline_already_loaded
+Given (line of text):
+  The quick brown fox jumps over the lazy dog.
+Do (remove at 0, 10, 50, 90 and 100%):
+   `x 1x 5x 9x 0x
+Expect (broken text):
+  he uick brown fox jups over the lazydog
+
+# Custom configuration:
+
+Execute (custom config):
+  let mapleader = ','
+  let g:jumpinline_prefix = '<leader>'
+  call jumpinline#Load()
+Given (line of text):
+  The quick brown fox jumps over the lazy dog.
+Do (remove at 0, 10, 50, 90 and 100%):
+  ,`x,1x,5x,9x,0x
+Expect (broken text):
+  he uick brown fox jups over the lazydog

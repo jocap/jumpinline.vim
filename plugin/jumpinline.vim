@@ -85,6 +85,7 @@ function! jumpinline#GoPartLine(n, mode) " {{{
     endif
 endfunction " }}}
 
+function! jumpinline#Load()
 " Create submode {{{
 if g:jumpinline_use_submode == 1
 " (submode is optional, but highly useful)
@@ -169,5 +170,7 @@ else " => non-submode mappings (not really too useful) {{{
     execute "vnoremap " . g:jumpinline_prefix . g:jumpinline_bindings[9] . " :call jumpinline#GoPartLine(0.9, \"v\")<CR>"
     execute "vnoremap " . g:jumpinline_prefix . g:jumpinline_bindings[10] . " :call jumpinline#GoPartLine(1, \"v\")<CR>"
 endif " }}}
+endfunction
+call jumpinline#Load()
 
 let g:jumpinline_already_loaded = 1
