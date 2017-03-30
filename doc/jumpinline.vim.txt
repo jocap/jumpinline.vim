@@ -90,7 +90,11 @@ From inside the `jumpinline` submode (only if `vim-submode` is loaded):
 ===============================================================================
 Section 3: Configuration                                *jumpinlineConfiguration*
 
-To configure `jumpinline.vim`, the following variables can be set:
+To configure `jumpinline.vim`, the following variables can be set.
+
+- NOTE ------------------------------------------------------------------------
+If you load the plugin before setting these variables, you can add the line
+`call jumpinline#Load()` after your custom configuration to reload the plugin.
 
 *g:jumpinline_prefix*
     (default: '<space>')
