@@ -49,6 +49,11 @@ executed.  In your version, this won't be visible.
 
 ## Installation
 
+First, install according to the instructions below. Then, add the following to
+your vimrc, after loading the plugin:
+
+    call jumpinline#Load()
+
 #### vim-plug
 
 Paste the following into your vim configuration:
@@ -115,14 +120,6 @@ Whether or not to use [vim-submode](https://github.com/kana/vim-submode).
 **g:jumpinline_leave_on_any_key** (default: 1):
 
 Alias for *g:submode_keep_leaving_key*, a [vim-submode](https://github.com/kana/vim-submode) option.  Lets the user exit the submode by pressing any key that isn't mapped to the submode. *Note*: it is recommended not to change this.
-
-**Important:**
-
-The variables above have to be set *before* the plugin is loaded. If you load
-*jumpinline.vim* before adjusting the configuration, call the following
-function after the variables have been set:
-
-    call jumpinline#Load()
 
 ### Example configuration
 
