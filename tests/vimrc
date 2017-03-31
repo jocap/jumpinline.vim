@@ -9,3 +9,6 @@ syntax on
 filetype plugin indent on
 colorscheme jellybeans
 nnoremap ; :
+
+" Hold off loading jumpinline.vim
+let g:jumpinline_dev_noload = 1

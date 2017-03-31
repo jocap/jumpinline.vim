@@ -1,19 +1,21 @@
 " jumpinline.vim
 " --------------
 
-" Don't waste time reload the plugin if it already is loaded:
+" Don't waste time reload the plugin if it already is loaded: {{{
 if exists('g:jumpinline_already_loaded')
     if exists('g:jumpinline_dev_reload')
         if g:jumpinline_dev_reload != 1
             finish
         endif
     else
-        finish
+        if g:jumpinline_already_loaded == 1
+            finish
+        endif
     endif
-endif
+endif " }}}
 
-function! jumpinline#GoPartLine(n, mode) " {{{
-" = Function that jumps to n% of the current line
+" Function that jumps to n% of the current line {{{
+function! jumpinline#GoPartLine(n, mode)
     " - Decide how to execute the movement (normal/visual)
     let l:prefix = 'normal! ' " default
     if a:mode == 'n'
@@ -62,6 +64,7 @@ function! jumpinline#GoPartLine(n, mode) " {{{
     endif
 endfunction " }}}
 
+" Function that loads plugin {{{
 function! jumpinline#Load()
 
     " Options {{{
@@ -174,4 +177,13 @@ function! jumpinline#Load()
 
     let g:jumpinline_already_loaded = 1
 endfunction
-call jumpinline#Load()
+" }}}
+
+" Automatically load plugin, unless otherwise told:
+if exists('g:jumpinline_dev_noload')
+    if g:jumpinline_dev_noload != 1
+        call jumpinline#Load()
+    endif
+else
+    call jumpinline#Load()
+endif

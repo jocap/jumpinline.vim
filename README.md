@@ -87,10 +87,6 @@ of `git submodule add`.
 
 ## Configuration
 
-**Note:** currently, there is a bug in *jumpinline.vim*, which means that
-custom configuration is barely, if at all, working.  I am currently working on
-fixing it.
-
 *jumpinline.vim* is configuration-friendly. The following variables can be
 configured:
 
