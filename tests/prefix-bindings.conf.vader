@@ -11,5 +11,5 @@ Given (line of text):
   The quick brown fox jumps over the lazy dog.
 Do (remove at 0, 10, 50, 90 and 100%):
   ,ax,sx,hx,;x,'x^ 0x
-Expect (broken text):
+Expect (removed characters missing):
   e uick brown fox jups over the lazydog

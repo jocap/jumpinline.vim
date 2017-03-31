@@ -16,52 +16,44 @@ endif " }}}
 
 " Function that jumps to n% of the current line {{{
 function! jumpinline#GoPartLine(n, mode)
-    " - Decide how to execute the movement (normal/visual)
-    let l:prefix = 'normal! ' " default
-    if a:mode == 'n'
-        if g:jumpinline_graphical_line == 1
-            let l:prefix = 'normal! g'
-        else
-            let l:prefix = 'normal! '
-        endif
-    elseif a:mode == 'v'
-        if g:jumpinline_graphical_line == 1
+    let l:line = getline('.') " get line characters
+
+    " - Calculate line length {{{
+    if g:jumpinline_graphical_line == 1
+        " - Decide how to execute the movement (normal/visual)
+        if a:mode == 'v'
             let l:prefix = 'normal! gvg'
         else
-            let l:prefix = 'normal! gv'
+            let l:prefix = 'normal! g'
         endif
-    endif
 
-    if g:jumpinline_graphical_line == 1
-        let l:original_position = getpos('.')[2] " original cursor position
-        execute 'normal! g^'
+        let l:original_position = col('.') " original cursor position
+        execute l:prefix . '^'
         " ^ go to graphical beginning of line
-        let l:bol_position = getpos('.')[2] " beginning of (graphical) line position
-        execute 'normal! g$'
+        let l:bol_position = col('.') " beginning of (graphical) line position
+        execute l:prefix '$'
         " ^ go to graphical end of line
-        let l:eol_position = getpos('.')[2] " end of (graphical) line position
+        let l:eol_position = col('.') " end of (graphical) line position
 
         let l:lineln = l:eol_position - l:bol_position " graphical line length
         let l:lineln = l:lineln + 1 " to account for the later subtraction by 1
     else
-        let l:line = getline('.') " get line characters
-        let l:line = substitute(l:line, '^\s*\(.\{-}\)\s*$', '\1', '') " remove whitespace
+        let l:line = substitute(l:line, '^\s*', '', '') " remove indent
         let l:lineln = strlen(l:line) " calculate length of line
     endif
+    " }}}
+
+    let l:indent = indent(line('.'))
+
+    let l:product = round(l:lineln * a:n)
+    let l:position = float2nr(l:product)
+    let l:position = l:position + l:indent
 
     if a:n == 0
-        execute l:prefix . '^'
-        " ^ go to beginning of line (has to be done manually, as `0l` would
-        "   go one character right of the line's beginning)
-    else
-        let l:product = round(l:lineln * a:n)
-        let l:position = float2nr(l:product) - 1
-        " ^ for example: [line length of 31] * 0.5 = 15.5 -> product
-        "                round product to 16-1 = 15       -> position (to jump to)
-
-        execute l:prefix . '^' . l:position . 'l'
-        " ^ in our example: go to beginning of line and move 16 places right
+        let l:position = l:position + 1
     endif
+
+    call cursor(line('.'), l:position)
 endfunction " }}}
 
 " Function that loads plugin {{{

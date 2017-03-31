@@ -1,5 +1,7 @@
 g:jumpinline_bindings	jumpinline.vim.txt	/*g:jumpinline_bindings*
 g:jumpinline_bindings	jumpinline.vim.txt	/*g:jumpinline_bindings*
+g:jumpinline_capture_leaving_key	jumpinline.vim.txt	/*g:jumpinline_capture_leaving_key*
+g:jumpinline_capture_leaving_key	jumpinline.vim.txt	/*g:jumpinline_capture_leaving_key*
 g:jumpinline_graphical_line	jumpinline.vim.txt	/*g:jumpinline_graphical_line*
 g:jumpinline_graphical_line	jumpinline.vim.txt	/*g:jumpinline_graphical_line*
 g:jumpinline_leave_on_any_key	jumpinline.vim.txt	/*g:jumpinline_leave_on_any_key*
@@ -7,6 +9,7 @@ g:jumpinline_prefix	jumpinline.vim.txt	/*g:jumpinline_prefix*
 g:jumpinline_prefix	jumpinline.vim.txt	/*g:jumpinline_prefix*
 g:jumpinline_use_submode	jumpinline.vim.txt	/*g:jumpinline_use_submode*
 help-writing	jumpinline.vim.txt	/*help-writing*
+jumpinline	jumpinline.vim.txt	/*jumpinline*
 jumpinline.vim	jumpinline.vim.txt	/*jumpinline.vim*
 jumpinline.vim	jumpinline.vim.txt	/*jumpinline.vim*
 jumpinlineChangelog	jumpinline.vim.txt	/*jumpinlineChangelog*
