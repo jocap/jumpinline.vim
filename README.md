@@ -1,10 +1,11 @@
-# jumpinline.vim (v0.2)
+# jumpinline.vim (v0.3)
 
 *   [Description](#description)
     * [Examples](#examples) (gifs)
 *   [Installation](#installation)
 *   [Configuration](#configuration)
 *   [Documentation](#documentation)
+*   [Changelog](#changelog)
 
 ## Description
 
@@ -112,9 +113,13 @@ wrapping.
 Whether or not to use [vim-submode](https://github.com/kana/vim-submode).
 *Note:* it is highly recommended not to change this.
 
-**g:jumpinline_leave_on_any_key** (default: 1):
+**g:jumpinline_capture_leaving_key** (default: 0):
 
-Alias for *g:submode_keep_leaving_key*, a [vim-submode](https://github.com/kana/vim-submode) option.  Lets the user exit the submode by pressing any key that isn't mapped to the submode. *Note*: it is recommended not to change this.
+If set to 1, it configures [vim-submode](https://github.com/kana/vim-submode)
+to capture any unmapped key you type whilst in the *jumpinline* submode.  In
+either case, typing an unmapped key (e.g., `x`) will quit the submode, but if
+this option is set to 0, the typed key will be executed (e.g., `x` will be
+executed and remove a character).
 
 ### Example configuration
 
@@ -131,3 +136,20 @@ example.
 To view the full documentation, see the help file:
 
     :help jumpinline.vim
+
+## Changelog
+
+    v0.1 ------------------------------------------------------------ 2017 March 27
+
+    - Beta release, but in somewhat working condition.
+
+    v0.2 ------------------------------------------------------------ 2017 March 28
+
+    - Added *g:jumpinline_graphical_line* option.
+    - Various bugfixes, in working condition.
+
+    v0.3 ------------------------------------------------------------ 2017 March 31
+
+    - Removed *g:jumpinline_leave_on_any_key* option
+    - Added *g:jumpinline_capture_leaving_key* option
+    - Added tests for default and custom configurations using vader.vim

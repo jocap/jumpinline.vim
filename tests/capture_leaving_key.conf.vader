@@ -1,0 +1,18 @@
+# Custom configuration:
+
+Execute (custom config):
+  let g:jumpinline_capture_leaving_key = 1
+
+  call jumpinline#Load()
+  AssertEqual 1, g:jumpinline_already_loaded
+
+Given (line of text):
+  The quick brown fox jumps over the lazy dog.
+
+Do (go to 50% and immediately send `x`):
+   5x
+
+Then (check that `x` wasn't executed):
+  let line = getline('.')
+  AssertNotEqual 'The quick brown fox jmps over the lazy dog.', line
+  AssertEqual 'The quick brown fox jumps over the lazy dog.', line

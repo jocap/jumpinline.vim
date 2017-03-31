@@ -110,14 +110,16 @@ To configure `jumpinline.vim`, the following variables can be set:
 
 *g:jumpinline_use_submode*
     (default: 1)
-    Whether or not to use vim-submode. Note: it is highly recommended not to
+    Whether or not to use `vim-submode`. Note: it is highly recommended not to
     change this.
 
-*g:jumpinline_leave_on_any_key*
-    (default: 1)
-    Alias for g:submode_keep_leaving_key, a Vim-submode option. Lets the user
-    exit the submode by pressing any key that isn't mapped to the submode.
-    Note: it is recommended not to change this.
+*g:jumpinline_capture_leaving_key*
+    (default: 0)
+    If set to 1, it configures `vim-submode` to capture any unmapped key you type
+    whilst in the *jumpinline* submode.  In either case, typing an unmapped key
+    (e.g., `x`) will quit the submode, but if this option is set to 0, the
+    typed key will be executed (e.g., `x` will be executed and remove a
+    character).
 
 ===============================================================================
 Section 4: Changelog                                        *jumpinlineChangelog*
@@ -130,6 +132,12 @@ v0.2 ------------------------------------------------------------ 2017 March 28
 
 - Added *g:jumpinline_graphical_line* option.
 - Various bugfixes, in working condition.
+
+v0.3 ------------------------------------------------------------ 2017 March 31
+
+- Removed *g:jumpinline_leave_on_any_key* option
+- Added *g:jumpinline_capture_leaving_key* option
+- Added tests for default and custom configurations using vader.vim
 
 ===============================================================================
 Section 5: License                                            *jumpinlineLicense*

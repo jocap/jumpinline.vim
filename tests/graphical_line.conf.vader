@@ -1,0 +1,23 @@
+# Custom configuration:
+
+Execute (custom config):
+  set wrap linebreak nolist " enable wrapping
+
+  let g:jumpinline_graphical_line = 1
+
+  call jumpinline#Load()
+  AssertEqual 1, g:jumpinline_already_loaded
+
+Given (line of text):
+  The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.
+
+Do (remove last character of graphical line):
+  gg0 0x
+
+Then (test that 'real' EOL is intact):
+  let line = getline('.')
+  AssertNotEqual 'The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog.', line
+  AssertNotEqual 'The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog', line
+  " ^ line has been changed, but the last character of the 'real' line is
+  "   unchanged => <space>0x removed some character before the 'real' end of the
+  "   line => it probably removed the last character of the graphical line

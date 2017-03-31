@@ -81,8 +81,8 @@ function! jumpinline#Load()
     if !exists('g:jumpinline_use_submode')
         let g:jumpinline_use_submode = 1
     endif
-    if !exists('g:jumpinline_leave_on_any_key')
-        let g:jumpinline_leave_on_any_key = 1
+    if !exists('g:jumpinline_capture_leaving_key')
+        let g:jumpinline_capture_leaving_key = 0
     endif
     if !exists('g:jumpinline_dev_reload')
         " reload even if plugin already is loaded
@@ -94,8 +94,9 @@ function! jumpinline#Load()
     if g:jumpinline_use_submode == 1
     " (submode is optional, but highly useful)
 
-        " - Leave submode with any key
-        let g:submode_keep_leaving_key = g:jumpinline_leave_on_any_key
+        if g:jumpinline_capture_leaving_key == 0
+            let g:submode_keep_leaving_key = 1
+        endif
 
         " - Enter submode with <space>n (default), where n*10 is the % of the
         "   current line you want to jump to.

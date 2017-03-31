@@ -1,0 +1,18 @@
+# Custom configuration:
+
+Execute (custom config):
+  let g:jumpinline_use_submode = 0
+
+  call jumpinline#Load()
+  AssertEqual 1, g:jumpinline_already_loaded
+
+Given (line of text):
+  The quick brown fox jumps over the lazy dog.
+
+Do (go to 20% and 7 to the right and remove character):
+   27lx
+
+Then (check that we didn't go to 70%):
+  let line = getline('.')
+  AssertNotEqual 'The quick brown fox jumps over he lazy dog.', line
+  AssertEqual 'The quick brownfox jumps over the lazy dog.', line
