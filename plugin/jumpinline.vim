@@ -174,3 +174,4 @@ function! jumpinline#Load()
 
     let g:jumpinline_already_loaded = 1
 endfunction
+call jumpinline#Load()
