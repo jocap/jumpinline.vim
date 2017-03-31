@@ -17,9 +17,9 @@ If you jump a little bit too far, you can adjust by pressing any other number,
 as many times as you like, without having to press space again.
 
 This works because *jumpinline.vim* runs as its own
-[submode](https://github.com/kana/vim-submode), which exits back to
-normal/visual mode after a short timeout - or automatically, if you press any
-other letter that isn't used by *jumpinline.vim*.
+[submode](https://github.com/kana/vim-submode), which exits back to normal mode
+after a short timeout - or automatically, if you press any other letter that
+isn't used by *jumpinline.vim*.
 
 This means that it is very easy to jump quickly to any position in the current
 line, without having to think about what character to jump to using `t`/`f`, or
@@ -33,7 +33,7 @@ and adjust using `hjkl` or another number.
 
 **Note:**
 
-- *jumpinline.vim* works in normal, visual and select mode
+- *jumpinline.vim* currently only works in normal mode
 - All keys can be configured
 - The plugin requires [vim-submode](https://github.com/kana/vim-submode) to function
   properly (it can be used without it, but it wouldn't be very useful)

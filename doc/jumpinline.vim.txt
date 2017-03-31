@@ -32,7 +32,7 @@ If you jump a little bit too far, you can adjust by pressing any other number,
 as many times as you like, without having to press space again.
 
 This works because `jumpinline.vim` runs as its own submode (provided by
-`vim-submode` - see |jumpinlineCredits|), which exits back to normal/visual mode
+`vim-submode` - see |jumpinlineCredits|), which exits back to normal mode
 after a short timeout - or automatically, if you press any other letter that
 isn't used by `jumpinline.vim`.
 
