@@ -123,13 +123,11 @@ executed and remove a character).
 
 ### Example configuration
 
-If you want to press `a` + the keys from Q through [ instead of the default `<space>` + \`-0, enter this into your vim configuration:
+If you want to press `<leader>` + the keys on the home row to enter the
+*jumpinline* submode, enter this into your vim configuration:
 
-    let g:jumpinline_prefix = 'a'
-    let g:jumpinline_bindings = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[']
-
-Of course, this particular setup is not recommended, but serves as a simple
-example.
+    let g:jumpinline_prefix = '<leader>'
+    let g:jumpinline_bindings = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'"]
 
 ## Documentation
 
