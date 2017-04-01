@@ -9,32 +9,37 @@
 
 ## Description
 
-*jumpinline.vim* is a plugin that allows the user to quickly find
-the right place in a line, by simply using the number keys on the keyboard.
+**jumpinline.vim** tries to fill a void in the Vim movement commands. There are
+plenty of commands suitable for short movement along a line - like `h`, `l`,
+`w` and `b` - and there are commands for searching for a specific character or
+string on the line - like `t`, `f` and `/`.
 
-To jump to 10% of the current line, press `<space>1`. For 50%, press `<space>5`.
-If you jump a little bit too far, you can adjust by pressing any other number,
-as many times as you like, without having to press space again.
+But the small-movement commands become annoying to repeat when you have long
+lines, and the searching commands become equally as annoying when you have a
+line with a lot of repeated characters or words.
 
-This works because *jumpinline.vim* runs as its own
-[submode](https://github.com/kana/vim-submode), which exits back to normal mode
-after a short timeout - or automatically, if you press any other letter that
-isn't used by *jumpinline.vim*.
+**jumpinline.vim** remedies this by adding a new movement
+[submode](https://github.com/kana/vim-submode), designed for long movement
+along a line. Enter the submode with `<space>` + one of the number keys and it
+will jump to the corresponding percentage of the line.
 
-This means that it is very easy to jump quickly to any position in the current
-line, without having to think about what character to jump to using `t`/`f`, or
-having to press `w` a bunch of times until you find your place.
+For example: press `<space>3` and you will jump to the 30% of the line.
 
-*jumpinline.vim* is especially useful when working with lines containing a lot
-of repetition, making `t`, `f` and even `/` a pain to use. Instead, just
-estimate how far you need to go into the line and press the corresponding
-number. Need to go the middle of the file, approximately? Just press `<space>5`
-and adjust using `hjkl` or another number.
+While the submode is still active, you can press several numbers to adjust your
+position: `<space>45` will jump to 40% of the line, and then to 50%. This is
+especially useful if you undershoot or overshoot your position.
+ 
+The submode is exited after a short timeout, or immediately if you press any
+key that isn't used by *jumpinline.vim*. This means that you can become as
+precise as fast in your movements, by using the small-movement keys directly
+after using the *jumpinline* submode to perform the big movement.
 
 **Note:**
 
 - *jumpinline.vim* currently only works in normal mode
 - All keys can be configured
+- It can work with either "real" lines or graphical lines (see
+  [Configuration](#configuration)
 - The plugin requires [vim-submode](https://github.com/kana/vim-submode) to function
   properly (it can be used without it, but it wouldn't be very useful)
 
