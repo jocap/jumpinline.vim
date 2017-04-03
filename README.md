@@ -37,11 +37,11 @@ after using the *jumpinline* submode to perform the big movement.
 **Note:**
 
 - *jumpinline.vim* currently only works in normal mode
-- All keys can be configured
+- All keys can be configured (see [Configuration](#configuration))
 - It can work with either "real" lines or graphical lines (see
-  [Configuration](#configuration)
-- The plugin requires [vim-submode](https://github.com/kana/vim-submode) to function
-  properly (it can be used without it, but it wouldn't be very useful)
+  [Configuration](#configuration))
+- The plugin requires [vim-submode](https://github.com/kana/vim-submode) to
+  function properly (it can be used without it, but not very usefully)
 
 ### Examples
 
