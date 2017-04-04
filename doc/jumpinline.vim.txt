@@ -24,7 +24,7 @@ CONTENTS                                                     *jumpinlineContents
 ===============================================================================
 Section 1: Usage                                                *jumpinlineUsage*
 
-`jumpinline.vim` tries to fill a void in the Vim movement commands. There are
+*jumpinline.vim* tries to fill a void in the Vim movement commands. There are
 plenty of commands suitable for short movement along a line - like `h`, `l`,
 `w` and `b` - and there are commands for searching for a specific character or
 string on the line - like `t`, `f` and `/`.
@@ -33,19 +33,19 @@ But the small-movement commands become annoying to repeat when you have long
 lines, and the searching commands become equally as annoying when you have a
 line with a lot of repeated characters or words.
 
-`jumpinline.vim` remedies this by adding a new movement submode (provided by
+*jumpinline.vim* remedies this by adding a new movement submode (provided by
 `vim-submode` - see |jumpinlineCredits|), designed for long movement along a
 line. Enter the submode with `<space>` + one of the number keys and it will
 jump to the corresponding percentage of the line.
 
 For example: press `<space>3` and you will jump to the 30% of the line.
 
-While the submode is still active, you can press several numbers to adjust your
-position: `<space>45` will jump to 40% of the line, and then to 50%. This is
-especially useful if you undershoot or overshoot your position.
+While the submode is still active, you can press several numbers to adjust
+your position: `<space>45` will jump to 40% of the line, and then to 50%. This
+is especially useful if you undershoot or overshoot your position.
  
 The submode is exited after a short timeout, or immediately if you press any
-key that isn't used by `jumpinline.vim`. This means that you can become as
+key that isn't used by *jumpinline.vim* - this means that you can become as
 precise as fast in your movements, by using the small-movement keys directly
 after using the `jumpinline` submode to perform the big movement.
 
