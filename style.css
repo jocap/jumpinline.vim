@@ -16,23 +16,25 @@ html {
 
 body {
     font: 1.8rem/1.5 'Source Sans Pro', 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
-    /* background: black; */
-    background: #fcfcfc;
+    background: black;
     margin: 0;
 }
 
 #wrapper {
-    max-width: 80rem;
+    max-width: 77rem;
     min-width: 380px;
-    color: #181818;
-    /* color: #d8d8d8; */
+    background: #181818;
+    color: #d8d8d8;
     margin: 0 auto;
+    padding: 2em 4em 4em;
+    border: solid #444;
+    border-width: 0 1px;
 }
 
 header {
     text-align: center;
     padding-bottom: 1em;
-    border-bottom: 1px solid hsl(0, 0%, 74%);
+    border-bottom: 1px solid hsl(0, 0%, 24%);
     margin-bottom: 2em;
 }
 header h1 {
@@ -42,60 +44,35 @@ header h1 {
     font-size: 7rem;
 }
 header h1 a {
-    color: hsl(37, 100%, 52%);
+    color: hsl(48, 82%, 50%);
 }
 
 #ascii {
     width: 380px;
     margin: 0 auto;
-    color: hsl(47, 100%, 41%);
-    text-shadow: 0 0 10px #000;
+    color: hsl(41, 100%, 50%);
     cursor: pointer;
 }
 
-main p {
-    text-align: justify;
-    word-break: break-word;
-    -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    -o-hyphens: auto;
-    hyphens: auto;
-}
-
-main p, ul {
-    max-width: 64rem; /* 75% of main width */
-    margin-left: auto;
-    margin-right: auto;
-}
-main h1, h2, h3, h4, h5, h6 {
-    padding-left: 8rem; /* 10% of main width */
-}
-
 a {
-    color: hsl(23, 100%, 47%);
+    color: hsl(30, 100%, 63%);
     text-decoration: none;
 }
 a:hover {
-    color: hsl(26, 100%, 67%);
+    color: hsl(23, 100%, 47%);
     text-decoration: underline;
 }
 
 img {
-    max-width: 125%;
-    margin-left: -12.5%;
+    max-width: 100%;
 }
 p > img:not(:last-child) {
     margin-bottom: -7px;
 }
 
 h2 {
-    border-top: 1px solid hsl(0, 0%, 74%);
+    border-top: 1px solid hsl(0, 0%, 24%);
     padding-top: 0.67em;
-}
-
-main b, main strong {
-    color: hsl(237, 73%, 70%);
 }
 
 pre:not(#ascii) {
@@ -103,8 +80,8 @@ pre:not(#ascii) {
 }
 pre:not(#ascii), code {
     font-family: Inconsolata, monospace;
-    background: hsl(0, 0%, 84%);
-    border: solid #999;
+    background: hsl(0, 0%, 14%);
+    border: solid #444;
     border-width: 1px 0;
 }
 pre > code {
@@ -115,17 +92,14 @@ pre > code {
 pre:not(#ascii) {
     overflow-x: auto;
 }
-
-h2#changelog + pre > code {
-    /* 0.5em = 1 character; 39.5 * 2 = 79 (textwidth) */
-    max-width: 39.5em;
-    margin: 0 auto;
-}
-
 ::-webkit-scrollbar {
     height: 6px;
     width: 6px;
 }
 ::-webkit-scrollbar-thumb {
     background: hsl(31, 55%, 33%);
+}
+
+main b, main strong {
+    color: hsl(237, 73%, 76%);
 }
